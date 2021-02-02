@@ -1,0 +1,17 @@
+{
+    "nivel": 0,
+    "name": "sad",
+    "xp": 0,
+    "skillpoints": 0,
+    "id_outfit": 0,
+    "stamina": 100,
+    "hp": 100,
+    "id_dificultate": 2,
+    "locatia": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "munitia": 0,
+    "id_arma": 0
+}
