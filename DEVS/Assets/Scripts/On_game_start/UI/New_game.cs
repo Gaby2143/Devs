@@ -12,6 +12,7 @@ public class New_game : MonoBehaviour
     private Image img_medium_selected;
     private Image img_hard_selected;
     private Text errase_alert;
+
     public void Start()
     {
         Panel_buttons = GameObject.Find("Buttons_panel");
@@ -94,21 +95,29 @@ public class New_game : MonoBehaviour
 
     private void Continue()
     {
-        Player_data data;
+        Player_data data=new Player_data();
+        bool valid = false;
         if (img_easy_selected.enabled)
         {
+            valid = true;
             data = Easy_selected();
         }
         else if(img_medium_selected.enabled)
         {
+            valid = true;
             data = Medium_selected();
         }
-        else
+        else if(img_hard_selected.enabled)
         {
+            valid = true;
             data = Hard_selected();
         }
-        Create_json(data);
-        Enter_the_map();
+
+        if(valid)
+        {
+            Create_json(data);
+            Enter_the_map();
+        }
     }
 
     public void Continue_with_data()
