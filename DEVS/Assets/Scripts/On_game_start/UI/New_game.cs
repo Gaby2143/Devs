@@ -11,12 +11,12 @@ public class New_game : MonoBehaviour
     private Image img_easy_selected;
     private Image img_medium_selected;
     private Image img_hard_selected;
-
+    private Text errase_alert;
     public void Start()
     {
         Panel_buttons = GameObject.Find("Buttons_panel");
         Panel_new_game = GameObject.Find("Panel_new_game");
-
+        errase_alert = GameObject.Find("erease_alert").GetComponent<Text>();
         img_easy_selected = GameObject.Find("img_easy_selected").GetComponent<Image>();
         img_medium_selected = GameObject.Find("img_medium_selected").GetComponent<Image>();
         img_hard_selected = GameObject.Find("img_hard_selected").GetComponent<Image>();
@@ -34,19 +34,21 @@ public class New_game : MonoBehaviour
         if(Find_file.Exist("Text_files/User_data/user.json"))
         {
             Debug.Log("Exista un json deja");
-            //are you sure ?
+            Open_new_game_menu(true);
         }
         else
         {
             Debug.Log("Se deschide interfata");
-            Open_new_game_menu();
+            Open_new_game_menu(false);
         }
     }
 
-    private void Open_new_game_menu()
+    private void Open_new_game_menu(bool erase)
     {
         Panel_buttons.SetActive(false);
         Panel_new_game.SetActive(true);
+        if (erase) errase_alert.enabled = true;
+        else errase_alert.enabled = false;
     }
 
     public void On_easy_select()
