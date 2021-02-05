@@ -27,7 +27,6 @@ public class New_game : MonoBehaviour
         img_hard_selected.enabled = false;
 
         Panel_new_game.SetActive(false);
-
     }
 
     public void On_press_new_game()
